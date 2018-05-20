@@ -1,6 +1,6 @@
 <template>
   <div class="card-container">
-      <card v-for="todo in todos" v-bind:key="todo" :description="todo.first_name"></card>
+      <card v-for="todo in todos" v-bind:key="todo.first_name" :description="todo.first_name"></card>
   </div>
 </template>
 
@@ -10,8 +10,8 @@ import axios from "axios"
 import Card from "@/components/Card"
 
 export default {
-  name: "CardList",
-  components: { Card },
+  name: "TodoList",
+  components: { card: Card },
   data () {
     return {
       todos: [],
@@ -29,11 +29,16 @@ export default {
 }
 </script>
 
-
 <style lang="scss" scoped>
+@import "../../node_modules/bootstrap/scss/_functions";
+@import "../../node_modules/bootstrap/scss/_variables";
+@import "../../node_modules/bootstrap/scss/mixins/_breakpoints";
+
 .card-container {
-    display: flex;
+  display: flex;
+
+  @include media-breakpoint-down(sm) {
+    flex-direction: column;
+  }
 }
 </style>
-
-

@@ -15,5 +15,10 @@ export default {
     }
   }
 }
+</script>
 
-
+<style lang="scss" scoped>
+.card {
+  margin: 2px;
+}
+</style>
