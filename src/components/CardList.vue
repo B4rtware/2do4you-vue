@@ -1,6 +1,6 @@
 <template>
   <div class="card-container">
-      <card v-for="todo in todos" v-bind:key="todo.first_name" :description="todo.first_name"></card>
+      <card v-for="todo in todos" v-bind:key="todo" :description="todo.first_name" :detail="todo.last_name"></card>
   </div>
 </template>
 
@@ -20,6 +20,7 @@ export default {
   },
   async created () {
     try {
+      this.todos = [{first_name: "loading..."}]
       const response = await axios.get("https://reqres.in/api/users?page=2")
       this.todos = response.data.data
     } catch (e) {
